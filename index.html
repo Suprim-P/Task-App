@@ -1,10 +1,115 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Task App</title>
-</head>
-<body>
-  <h1>Welcome to Task App</h1>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To-do List</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>To-do List <span class="badge">2+</span></h1>
+      <h2>Today</h2>
+
+      <!-- Task Detail View -->
+      <div id="task-view" class="task-view">
+        <div class="task-header">
+          <h3>View Task</h3>
+          <span class="close-btn" onclick="showListView()">X</span>
+        </div>
+
+        <label>Task Name</label>
+        <input type="text" value="Complete Portswigger Lab" readonly />
+
+        <label>Task Description</label>
+        <textarea readonly>
+I am currently doing the Portswigger Lab. I have done the CORS and basic Server Side Web Vulnerability. Now, I have to do the rest of it.</textarea
+        >
+
+        <div class="row">
+          <div>
+            <label>Due Date</label>
+            <select>
+              <option>Select Date</option>
+            </select>
+          </div>
+          <div>
+            <label>Category</label>
+            <select class="in-progress">
+              <option>In Progress</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Task List View -->
+      <div id="list-view" class="list-view" style="display: none">
+        <table>
+          <thead>
+            <tr>
+              <th><input type="checkbox" /></th>
+              <th>ID</th>
+              <th>Task Name</th>
+              <th>Category</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>1.</td>
+              <td>Workout</td>
+              <td>
+                <select class="completed">
+                  <option>Completed</option>
+                </select>
+              </td>
+              <td>
+                <span class="action">👁️</span>
+                <span class="action">✏️</span>
+                <span class="delete">🗑️</span>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>2.</td>
+              <td>Complete Figma Task</td>
+              <td>
+                <select class="completed">
+                  <option>Completed</option>
+                </select>
+              </td>
+              <td>
+                <span class="action">👁️</span>
+                <span class="action">✏️</span>
+                <span class="delete">🗑️</span>
+              </td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" /></td>
+              <td>3.</td>
+              <td>Complete Portswigger Lab</td>
+              <td>
+                <select class="in-progress">
+                  <option>In Progress</option>
+                </select>
+              </td>
+              <td>
+                <span class="action">👁️</span>
+                <span class="action">✏️</span>
+                <span class="delete">🗑️</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <button class="clear-btn">🗑️ Clear All Task</button>
+      </div>
+    </div>
+
+    <script>
+      function showListView() {
+        document.getElementById("task-view").style.display = "none";
+        document.getElementById("list-view").style.display = "block";
+      }
+    </script>
+  </body>
 </html>
